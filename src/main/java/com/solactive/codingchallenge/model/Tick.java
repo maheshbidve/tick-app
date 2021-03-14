@@ -2,6 +2,12 @@ package com.solactive.codingchallenge.model;
 
 import java.util.Date;
 
+/**
+ * This is a POJO used to store Tick
+ * 
+ * @author mahesh.bidve
+ *
+ */
 public class Tick {
 	private Date timestamp;
 	private double price;

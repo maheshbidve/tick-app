@@ -29,6 +29,12 @@ public class TickController {
 	@Autowired
 	private TickService service;
 
+	/**
+	 * Consume Tick
+	 * 	This API is used to consume tick for various RIC's
+	 * @param input
+	 * @return
+	 */
 	@RequestMapping(method = RequestMethod.POST, path = { "/consume" }, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<String> consumeTick(@RequestParam String input) {
 		Tick tick = buildTick(input);
@@ -40,6 +46,14 @@ public class TickController {
 		return new ResponseEntity<>(response.getStatusMessage(), response.getStatusCode());
 	}
 
+	/**
+	 * Get ticks API is used to list all the ticks for a specific RIC, it is secured by a x-api-key which will be unique to each RIC
+	 * 
+	 * @param key - header param
+	 * @param ric - RIC name
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(method = RequestMethod.GET, path = { "/getTicks/{ric}" }, produces = {
 			MediaType.APPLICATION_JSON_VALUE })
 	public List<Tick> getTicks(@RequestHeader("x-api-key") String key, @PathVariable String ric) throws Exception {

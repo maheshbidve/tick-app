@@ -13,6 +13,12 @@ import org.springframework.stereotype.Service;
 import com.solactive.codingchallenge.model.Tick;
 import com.solactive.codingchallenge.util.Constants;
 
+/**
+ * This class is used for tick export  
+ * 
+ * @author mahesh.bidve
+ *
+ */
 @Service
 public class ExportService {
 

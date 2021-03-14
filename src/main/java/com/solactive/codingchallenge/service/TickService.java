@@ -17,6 +17,12 @@ import com.solactive.codingchallenge.exception.ClosePriceNotSetException;
 import com.solactive.codingchallenge.model.Tick;
 import com.solactive.codingchallenge.util.Constants;;
 
+/**
+ * This class is used for tick 
+ * 
+ * @author mahesh.bidve
+ *
+ */
 @Service
 public class TickService {
 
@@ -27,11 +33,23 @@ public class TickService {
 
 	private List<Tick> list = new ArrayList<>();
 
+	/**
+	 * Consume Tick
+	 * 
+	 * @param tick
+	 * @return
+	 */
 	public Tick consumeTick(Tick tick) {
 		list.add(tick);
 		return tick;
 	}
 
+	/**
+	 * Get ticks
+	 * 
+	 * @param ricName
+	 * @return
+	 */
 	public List<Tick> getTicks(String ricName) {
 		List<Tick> ricTicks = list.stream().filter(e -> e.getRicName().equals(ricName)).collect(Collectors.toList());
 		if (!ObjectUtils.isEmpty(ricTicks) && ricTicks.stream().anyMatch(e -> e.getClose_price() > 0)) {
@@ -45,6 +63,13 @@ public class TickService {
 		return ricTicks;
 	}
 
+	/**
+	 * export ticks
+	 * 
+	 * @param ricName
+	 * @return
+	 * @throws Exception
+	 */
 	public String exportTicks(String ricName) throws Exception {
 		List<Tick> ricTicks = list.stream().filter(e -> e.getRicName().equals(ricName)).collect(Collectors.toList());
 		if (!ObjectUtils.isEmpty(ricTicks) && ricTicks.stream().anyMatch(e -> e.getClose_price() > 0)) {

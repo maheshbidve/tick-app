@@ -3,6 +3,12 @@ package com.solactive.codingchallenge.util;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class is used to store all constants
+ * 
+ * @author mahesh.bidve
+ *
+ */
 public class Constants {
 	public static final String TIMESTAMP = "TIMESTAMP";
 	public static final String PRICE = "PRICE";
